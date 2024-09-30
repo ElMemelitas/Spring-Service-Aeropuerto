@@ -39,6 +39,7 @@ public class PasajeroController {
     
     @GetMapping("/registros")
     public ResponseEntity<List<PasajeroModel>> getAllPasasjeros(){
+        @SuppressWarnings("unchecked")
         List<PasajeroModel> pasajeros =pasajeroService.obtenerPasajeros();
         
         if(pasajeros.isEmpty()){

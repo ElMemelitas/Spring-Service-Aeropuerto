@@ -25,7 +25,7 @@ public class PasajeroServiceImplements implements PasajeroService{
     }
 
     @Override
-    public List obtenerPasajeros() {
+    public List<PasajeroModel> obtenerPasajeros() {
         return pasajeroRepository.findAll();
     }
 

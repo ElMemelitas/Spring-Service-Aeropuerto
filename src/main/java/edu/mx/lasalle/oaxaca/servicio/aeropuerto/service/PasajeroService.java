@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 @Service
 public interface PasajeroService {
     public void registrarPasajero(PasajeroModel pasajeroModel);
+    @SuppressWarnings("rawtypes")
     public List obtenerPasajeros();
     public PasajeroModel getPasajero(int id);
     public void actualizarDatosPasajero(PasajeroModel pasajeroModel, int id);
