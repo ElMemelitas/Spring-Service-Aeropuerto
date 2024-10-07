@@ -1,6 +1,6 @@
 package edu.mx.lasalle.oaxaca.servicio.aeropuerto.model;
 
-import java.sql.Time;
+
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
