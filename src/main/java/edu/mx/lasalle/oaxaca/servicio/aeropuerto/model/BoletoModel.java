@@ -1,7 +1,5 @@
 package edu.mx.lasalle.oaxaca.servicio.aeropuerto.model;
 
-
-
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
