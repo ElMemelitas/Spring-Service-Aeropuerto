@@ -9,11 +9,13 @@ import edu.mx.lasalle.oaxaca.servicio.aeropuerto.repository.PasajeroRepository;
 import edu.mx.lasalle.oaxaca.servicio.aeropuerto.service.PasajeroService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author david
  */
+@Service
 public class PasajeroServiceImplements implements PasajeroService{
     
     @Autowired
@@ -36,7 +38,7 @@ public class PasajeroServiceImplements implements PasajeroService{
 
     @Override
     public void actualizarDatosPasajero(PasajeroModel pasajeroModel, int id) {
-       pasajeroModel.setId(id); 
+       pasajeroModel.setIdPasajero(id); 
        pasajeroRepository.save(pasajeroModel);
     }
 

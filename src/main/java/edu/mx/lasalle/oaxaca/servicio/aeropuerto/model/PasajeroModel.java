@@ -1,10 +1,13 @@
 package edu.mx.lasalle.oaxaca.servicio.aeropuerto.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
+
 import java.util.Date;
 /**
  *
@@ -17,20 +20,54 @@ import java.util.Date;
 public class PasajeroModel {
     @Id
     @GeneratedValue (strategy= GenerationType.SEQUENCE)
-    private int id;
+    
+    @Column(name="idPasajero")
+    private int idPasajero;
+
+    @Column(name="nombre")
+    @NotNull
     private String nombre;
-    private String apellido;
+
+    @Column(name="apellidos")
+    @NotNull
+    private String apellidos;
+
+    @Column(name="direccion")
+    @NotNull
     private String direccion;
-    private Date fechaNacimiento;
-    private Boolean discapacidad;
+
+    @Column(name="fechaNac")
+    @NotNull
+    private Date fechaNac;
+    
+    @Column(name="discapacidad")
+    @NotNull
+    private boolean discapacidad;
+
+    @Column(name="nacionalidad")
+    @NotNull
     private String nacionalidad;
 
-    public int getId() {
-        return id;
+    public PasajeroModel(int idPasajero, @NotNull String nombre, @NotNull String apellidos, @NotNull String direccion,
+            @NotNull Date fechaNac, @NotNull boolean discapacidad, @NotNull String nacionalidad) {
+        this.idPasajero = idPasajero;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.direccion = direccion;
+        this.fechaNac = fechaNac;
+        this.discapacidad = discapacidad;
+        this.nacionalidad = nacionalidad;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public PasajeroModel() {
+    }
+
+    public int getIdPasajero() {
+        return idPasajero;
+    }
+
+    public void setIdPasajero(int idPasajero) {
+        this.idPasajero = idPasajero;
     }
 
     public String getNombre() {
@@ -41,12 +78,12 @@ public class PasajeroModel {
         this.nombre = nombre;
     }
 
-    public String getApellido() {
-        return apellido;
+    public String getApellidos() {
+        return apellidos;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
     }
 
     public String getDireccion() {
@@ -57,19 +94,19 @@ public class PasajeroModel {
         this.direccion = direccion;
     }
 
-    public Date getFechaNacimiento() {
-        return fechaNacimiento;
+    public Date getFechaNac() {
+        return fechaNac;
     }
 
-    public void setFechaNacimiento(Date fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
+    public void setFechaNac(Date fechaNac) {
+        this.fechaNac = fechaNac;
     }
 
-    public Boolean getDiscapacidad() {
+    public boolean isDiscapacidad() {
         return discapacidad;
     }
 
-    public void setDiscapacidad(Boolean discapacidad) {
+    public void setDiscapacidad(boolean discapacidad) {
         this.discapacidad = discapacidad;
     }
 
@@ -83,8 +120,11 @@ public class PasajeroModel {
 
     @Override
     public String toString() {
-        return "PasajeroModel{" + "id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", direccion=" + direccion + ", fechaNacimiento=" + fechaNacimiento + ", discapacidad=" + discapacidad + ", nacionalidad=" + nacionalidad + '}';
+        return "PasajeroModel [idPasajero=" + idPasajero + ", nombre=" + nombre + ", apellidos=" + apellidos
+                + ", direccion=" + direccion + ", fechaNac=" + fechaNac + ", discapacidad=" + discapacidad
+                + ", nacionalidad=" + nacionalidad + "]";
     }
-       
+
+    
 }
 
