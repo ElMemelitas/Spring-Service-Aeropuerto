@@ -47,6 +47,14 @@ public class AvionetaModel {
     public AvionetaModel() {
     }
 
+    public int getIdAvioneta() {
+        return idAvioneta;
+    }
+
+    public void setIdAvioneta(int idAvioneta) {
+        this.idAvioneta = idAvioneta;
+    }
+
     public int getNumeroMotores() {
         return numeroMotores;
     }
@@ -86,6 +94,8 @@ public class AvionetaModel {
     public void setIdVehiculoAereo(VehiculoAereoModel idVehiculoAereo) {
         this.idVehiculoAereo = idVehiculoAereo;
     }
+
+
 
     
 }

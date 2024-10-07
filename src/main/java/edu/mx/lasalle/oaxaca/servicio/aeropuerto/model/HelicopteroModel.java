@@ -37,6 +37,14 @@ public class HelicopteroModel {
     public HelicopteroModel() {
     }
 
+    public int getIdHelicoptero() {
+        return idHelicoptero;
+    }
+
+    public void setIdHelicoptero(int idHelicoptero) {
+        this.idHelicoptero = idHelicoptero;
+    }
+
     public int getNumeroHelices() {
         return numeroHelices;
     }

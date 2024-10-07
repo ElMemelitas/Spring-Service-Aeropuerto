@@ -11,8 +11,8 @@ public interface TerminalService {
     public void registrarTerminal(TerminalModel terminalModel);
     @SuppressWarnings("rawtypes")
     public List obtenerTerminales();
-    public TerminalModel getTerminal(int id);
-    public void actualizarDatosTerminal(TerminalModel terminalModel, int id);
+    public TerminalModel getTerminal(String id);
+    public void actualizarDatosTerminal(TerminalModel terminalModel, String id);
     public void borrarTerminal(int id);
     public void borrarTodosLosTerminales();
 }

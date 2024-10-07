@@ -1,8 +1,8 @@
 
 package edu.mx.lasalle.oaxaca.servicio.aeropuerto.controller;
 
-import edu.mx.lasalle.oaxaca.servicio.aeropuerto.model.EquipajeModel;
-import edu.mx.lasalle.oaxaca.servicio.aeropuerto.service.EquipajeService;
+import edu.mx.lasalle.oaxaca.servicio.aeropuerto.model.TerminalModel;
+import edu.mx.lasalle.oaxaca.servicio.aeropuerto.service.TerminalService;
 import edu.mx.lasalle.oaxaca.servicio.aeropuerto.utils.CustomResponse;
 import java.util.HashSet;
 import java.util.List;
@@ -15,15 +15,15 @@ import org.springframework.web.bind.annotation.*;
  * @author david
  */
 @RestController
-@RequestMapping("api/v1/equipaje")
-public class EquipajeController {
+@RequestMapping("api/v1/terminal")
+public class TerminalController {
     @Autowired
-    private EquipajeService equipajeService;
+    private TerminalService terminalService;
     
     @PostMapping("/registro")
-    public CustomResponse registrarEquipaje(@RequestBody EquipajeModel equipajeModel){
+    public CustomResponse registrarTerminal(@RequestBody TerminalModel terminalModel){
         CustomResponse customResponse = new CustomResponse();
-        equipajeService.registrarEquipaje(equipajeModel);
+        terminalService.registrarTerminal(terminalModel);
         customResponse.setHttpCode(HttpStatus.CREATED);
         customResponse.setCode(201);
         customResponse.setMessage("EQUIPAJE REGISTRADO CORRECTAMENTE");
@@ -31,28 +31,28 @@ public class EquipajeController {
     };
     
     @GetMapping("/registros")
-    public ResponseEntity<List<EquipajeModel>> getAllEquipajes(){
+    public ResponseEntity<List<TerminalModel>> getAllTerminals(){
         @SuppressWarnings("unchecked")
-        List<EquipajeModel> equipajes =equipajeService.obtenerEquipajes();
+        List<TerminalModel> terminals =terminalService.obtenerTerminales();
         
-        if(equipajes.isEmpty()){
+        if(terminals.isEmpty()){
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
-        return new ResponseEntity<>(equipajes, HttpStatus.OK);
+        return new ResponseEntity<>(terminals, HttpStatus.OK);
     }
     
     @GetMapping("/{id}")
-    public ResponseEntity<Object> getEquipaje (@PathVariable int id){
+    public ResponseEntity<Object> getTerminal (@PathVariable String id){
         try{
             return ResponseEntity.status(HttpStatus.OK).body(
                     new CustomResponse(HttpStatus.OK, 
-                            equipajeService.getEquipaje(id),
+                            terminalService.getTerminal(id),
                             "Show all matches", 200)
             );
         } catch(Exception e){
             return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body(
                     new CustomResponse(HttpStatus.UNPROCESSABLE_ENTITY,
-                            equipajeService.getEquipaje(id),
+                            terminalService.getTerminal(id),
                             "ERROR: "+e,422
                     )
             );
@@ -60,20 +60,20 @@ public class EquipajeController {
     }
     
     @PutMapping("/{id}/actualizar")
-    public ResponseEntity<Object> updateEquipaje(
-            @RequestBody EquipajeModel equipajeModel,
-            @PathVariable(value = "id") int id){
+    public ResponseEntity<Object> updateTerminal(
+            @RequestBody TerminalModel terminalModel,
+            @PathVariable(value = "id") String id){
         ResponseEntity<Object> responseEntity =null;
         CustomResponse customResponse = new CustomResponse();
         try {
-            if(equipajeService.getEquipaje(id) == null){
+            if(terminalService.getTerminal(id) == null){
                 return ResponseEntity.status(HttpStatus.NO_CONTENT).body(
                         new CustomResponse(HttpStatus.NO_CONTENT,
                         "", "This action cant execute, not found with id = "+id,204)
                 );
             }
             
-            equipajeService.actualizarDatosEquipaje(equipajeModel,id);
+            terminalService.actualizarDatosTerminal(terminalModel,id);
             customResponse.setHttpCode(HttpStatus.OK);
             customResponse.setCode(200);
             customResponse.setMessage("Update success");
@@ -86,11 +86,11 @@ public class EquipajeController {
             }
     
     @DeleteMapping("/{id}/borrar")
-    public ResponseEntity<Object> deleteEquipaje(@PathVariable int id){
+    public ResponseEntity<Object> deleteTerminal(@PathVariable int id){
         ResponseEntity<Object> responseEntity =null;
         CustomResponse customResponse = new CustomResponse();
         try{
-            equipajeService.borrarEquipaje(id);
+            terminalService.borrarTerminal(id);
             customResponse.setHttpCode(HttpStatus.OK);
             customResponse.setCode(200);
             customResponse.setMessage("DELETE SUCCESS");

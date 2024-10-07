@@ -1,8 +1,8 @@
 
 package edu.mx.lasalle.oaxaca.servicio.aeropuerto.controller;
 
-import edu.mx.lasalle.oaxaca.servicio.aeropuerto.model.EquipajeModel;
-import edu.mx.lasalle.oaxaca.servicio.aeropuerto.service.EquipajeService;
+import edu.mx.lasalle.oaxaca.servicio.aeropuerto.model.VueloModel;
+import edu.mx.lasalle.oaxaca.servicio.aeropuerto.service.VueloService;
 import edu.mx.lasalle.oaxaca.servicio.aeropuerto.utils.CustomResponse;
 import java.util.HashSet;
 import java.util.List;
@@ -15,15 +15,15 @@ import org.springframework.web.bind.annotation.*;
  * @author david
  */
 @RestController
-@RequestMapping("api/v1/equipaje")
-public class EquipajeController {
+@RequestMapping("api/v1/vuelo")
+public class VueloController {
     @Autowired
-    private EquipajeService equipajeService;
+    private VueloService vueloService;
     
     @PostMapping("/registro")
-    public CustomResponse registrarEquipaje(@RequestBody EquipajeModel equipajeModel){
+    public CustomResponse registrarVuelo(@RequestBody VueloModel vueloModel){
         CustomResponse customResponse = new CustomResponse();
-        equipajeService.registrarEquipaje(equipajeModel);
+        vueloService.registrarVuelo(vueloModel);
         customResponse.setHttpCode(HttpStatus.CREATED);
         customResponse.setCode(201);
         customResponse.setMessage("EQUIPAJE REGISTRADO CORRECTAMENTE");
@@ -31,28 +31,28 @@ public class EquipajeController {
     };
     
     @GetMapping("/registros")
-    public ResponseEntity<List<EquipajeModel>> getAllEquipajes(){
+    public ResponseEntity<List<VueloModel>> getAllVuelos(){
         @SuppressWarnings("unchecked")
-        List<EquipajeModel> equipajes =equipajeService.obtenerEquipajes();
+        List<VueloModel> vuelos =vueloService.obtenerVuelos();
         
-        if(equipajes.isEmpty()){
+        if(vuelos.isEmpty()){
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
-        return new ResponseEntity<>(equipajes, HttpStatus.OK);
+        return new ResponseEntity<>(vuelos, HttpStatus.OK);
     }
     
     @GetMapping("/{id}")
-    public ResponseEntity<Object> getEquipaje (@PathVariable int id){
+    public ResponseEntity<Object> getVuelo (@PathVariable int id){
         try{
             return ResponseEntity.status(HttpStatus.OK).body(
                     new CustomResponse(HttpStatus.OK, 
-                            equipajeService.getEquipaje(id),
+                            vueloService.getVuelo(id),
                             "Show all matches", 200)
             );
         } catch(Exception e){
             return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body(
                     new CustomResponse(HttpStatus.UNPROCESSABLE_ENTITY,
-                            equipajeService.getEquipaje(id),
+                            vueloService.getVuelo(id),
                             "ERROR: "+e,422
                     )
             );
@@ -60,20 +60,20 @@ public class EquipajeController {
     }
     
     @PutMapping("/{id}/actualizar")
-    public ResponseEntity<Object> updateEquipaje(
-            @RequestBody EquipajeModel equipajeModel,
+    public ResponseEntity<Object> updateVuelo(
+            @RequestBody VueloModel vueloModel,
             @PathVariable(value = "id") int id){
         ResponseEntity<Object> responseEntity =null;
         CustomResponse customResponse = new CustomResponse();
         try {
-            if(equipajeService.getEquipaje(id) == null){
+            if(vueloService.getVuelo(id) == null){
                 return ResponseEntity.status(HttpStatus.NO_CONTENT).body(
                         new CustomResponse(HttpStatus.NO_CONTENT,
                         "", "This action cant execute, not found with id = "+id,204)
                 );
             }
             
-            equipajeService.actualizarDatosEquipaje(equipajeModel,id);
+            vueloService.actualizarDatosVuelo(vueloModel,id);
             customResponse.setHttpCode(HttpStatus.OK);
             customResponse.setCode(200);
             customResponse.setMessage("Update success");
@@ -86,11 +86,11 @@ public class EquipajeController {
             }
     
     @DeleteMapping("/{id}/borrar")
-    public ResponseEntity<Object> deleteEquipaje(@PathVariable int id){
+    public ResponseEntity<Object> deleteVuelo(@PathVariable int id){
         ResponseEntity<Object> responseEntity =null;
         CustomResponse customResponse = new CustomResponse();
         try{
-            equipajeService.borrarEquipaje(id);
+            vueloService.borrarVuelo(id);
             customResponse.setHttpCode(HttpStatus.OK);
             customResponse.setCode(200);
             customResponse.setMessage("DELETE SUCCESS");

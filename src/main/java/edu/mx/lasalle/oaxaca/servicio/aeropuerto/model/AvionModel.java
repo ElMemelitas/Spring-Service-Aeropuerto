@@ -47,6 +47,14 @@ public class AvionModel {
     public AvionModel() {
     }
 
+    public int getIdAvion() {
+        return idAvion;
+    }
+
+    public void setIdAvion(int idAvion) {
+        this.idAvion = idAvion;
+    }
+
     public String getAerolinea() {
         return aerolinea;
     }
@@ -86,6 +94,8 @@ public class AvionModel {
     public void setIdVehiculoAereo(VehiculoAereoModel idVehiculoAereo) {
         this.idVehiculoAereo = idVehiculoAereo;
     }
+
+    
 
     
 }
