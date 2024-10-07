@@ -22,9 +22,51 @@ public class SobrecargoModel {
     @NotNull
     private String certificados;
 
-
     @OneToOne
     @JoinColumn(name="idTripulacion")
     @OnDelete(action=OnDeleteAction.CASCADE)
     private TripulacionModel idTripulacion;
+
+    public SobrecargoModel(String idiomas, String certificados, TripulacionModel idTripulacion) {
+        this.idiomas = idiomas;
+        this.certificados = certificados;
+        this.idTripulacion = idTripulacion;
+    }
+
+    public SobrecargoModel() {
+    }
+
+    public int getIdSobrecargo() {
+        return idSobrecargo;
+    }
+
+    public void setIdSobrecargo(int idSobrecargo) {
+        this.idSobrecargo = idSobrecargo;
+    }
+
+    public String getIdiomas() {
+        return idiomas;
+    }
+
+    public void setIdiomas(String idiomas) {
+        this.idiomas = idiomas;
+    }
+
+    public String getCertificados() {
+        return certificados;
+    }
+
+    public void setCertificados(String certificados) {
+        this.certificados = certificados;
+    }
+
+    public TripulacionModel getIdTripulacion() {
+        return idTripulacion;
+    }
+
+    public void setIdTripulacion(TripulacionModel idTripulacion) {
+        this.idTripulacion = idTripulacion;
+    }
+
+    
 }

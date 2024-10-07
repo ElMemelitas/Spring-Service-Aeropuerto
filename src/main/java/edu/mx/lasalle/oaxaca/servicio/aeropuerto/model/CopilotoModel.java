@@ -30,4 +30,47 @@ public class CopilotoModel {
     @JoinColumn(name="idTripulacion")
     @OnDelete(action=OnDeleteAction.CASCADE)
     private TripulacionModel idTripulacion;
+
+    public CopilotoModel(String rango, Time tiempoRestantePiloto, TripulacionModel idTripulacion) {
+        this.rango = rango;
+        this.tiempoRestantePiloto = tiempoRestantePiloto;
+        this.idTripulacion = idTripulacion;
+    }
+
+    public CopilotoModel() {
+    }
+
+    public int getIdCopiloto() {
+        return idCopiloto;
+    }
+
+    public void setIdCopiloto(int idCopiloto) {
+        this.idCopiloto = idCopiloto;
+    }
+
+    public String getRango() {
+        return rango;
+    }
+
+    public void setRango(String rango) {
+        this.rango = rango;
+    }
+
+    public Time getTiempoRestantePiloto() {
+        return tiempoRestantePiloto;
+    }
+
+    public void setTiempoRestantePiloto(Time tiempoRestantePiloto) {
+        this.tiempoRestantePiloto = tiempoRestantePiloto;
+    }
+
+    public TripulacionModel getIdTripulacion() {
+        return idTripulacion;
+    }
+
+    public void setIdTripulacion(TripulacionModel idTripulacion) {
+        this.idTripulacion = idTripulacion;
+    }
+
+    
 }

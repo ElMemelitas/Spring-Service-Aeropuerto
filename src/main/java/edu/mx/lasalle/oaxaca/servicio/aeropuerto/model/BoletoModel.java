@@ -33,4 +33,57 @@ public class BoletoModel {
     @OnDelete(action=OnDeleteAction.CASCADE)
     private VueloModel idVuelo;
 
+    public BoletoModel(int idBoleto, @NotNull String asiento, @NotNull double costo, PasajeroModel idPasajero,
+            VueloModel idVuelo) {
+        this.idBoleto = idBoleto;
+        this.asiento = asiento;
+        this.costo = costo;
+        this.idPasajero = idPasajero;
+        this.idVuelo = idVuelo;
+    }
+
+    public BoletoModel() {
+    }
+
+    public int getIdBoleto() {
+        return idBoleto;
+    }
+
+    public void setIdBoleto(int idBoleto) {
+        this.idBoleto = idBoleto;
+    }
+
+    public String getAsiento() {
+        return asiento;
+    }
+
+    public void setAsiento(String asiento) {
+        this.asiento = asiento;
+    }
+
+    public double getCosto() {
+        return costo;
+    }
+
+    public void setCosto(double costo) {
+        this.costo = costo;
+    }
+
+    public PasajeroModel getIdPasajero() {
+        return idPasajero;
+    }
+
+    public void setIdPasajero(PasajeroModel idPasajero) {
+        this.idPasajero = idPasajero;
+    }
+
+    public VueloModel getIdVuelo() {
+        return idVuelo;
+    }
+
+    public void setIdVuelo(VueloModel idVuelo) {
+        this.idVuelo = idVuelo;
+    }
+
+    
 }
