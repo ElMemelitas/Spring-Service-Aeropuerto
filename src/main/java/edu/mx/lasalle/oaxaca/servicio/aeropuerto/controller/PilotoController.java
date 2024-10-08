@@ -26,7 +26,7 @@ public class PilotoController {
         pilotoService.registrarPiloto(pilotoModel);
         customResponse.setHttpCode(HttpStatus.CREATED);
         customResponse.setCode(201);
-        customResponse.setMessage("EQUIPAJE REGISTRADO CORRECTAMENTE");
+        customResponse.setMessage("PILOTO REGISTRADO CORRECTAMENTE");
         return customResponse;
     };
     

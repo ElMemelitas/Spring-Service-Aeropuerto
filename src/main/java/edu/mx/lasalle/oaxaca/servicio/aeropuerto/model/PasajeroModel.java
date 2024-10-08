@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 
-import java.util.Date;
+import java.time.LocalDate;
 /**
  *
  * @author david
@@ -38,7 +38,7 @@ public class PasajeroModel {
 
     @Column(name="fechaNac")
     @NotNull
-    private Date fechaNac;
+    private LocalDate fechaNac;
     
     @Column(name="discapacidad")
     @NotNull
@@ -49,7 +49,7 @@ public class PasajeroModel {
     private String nacionalidad;
 
     public PasajeroModel(int idPasajero, @NotNull String nombre, @NotNull String apellidos, @NotNull String direccion,
-            @NotNull Date fechaNac, @NotNull boolean discapacidad, @NotNull String nacionalidad) {
+            @NotNull LocalDate fechaNac, @NotNull boolean discapacidad, @NotNull String nacionalidad) {
         this.idPasajero = idPasajero;
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -94,11 +94,11 @@ public class PasajeroModel {
         this.direccion = direccion;
     }
 
-    public Date getFechaNac() {
+    public LocalDate getFechaNac() {
         return fechaNac;
     }
 
-    public void setFechaNac(Date fechaNac) {
+    public void setFechaNac(LocalDate fechaNac) {
         this.fechaNac = fechaNac;
     }
 

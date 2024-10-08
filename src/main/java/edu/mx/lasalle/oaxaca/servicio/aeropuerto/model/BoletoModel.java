@@ -28,9 +28,9 @@ public class BoletoModel {
     @OnDelete(action=OnDeleteAction.CASCADE)
     private PasajeroModel idPasajero;
 
-    @OneToOne
-    @JoinColumn(name="idVuelo")
-    @OnDelete(action=OnDeleteAction.CASCADE)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "idVuelo", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private VueloModel idVuelo;
 
     public BoletoModel(int idBoleto, @NotNull String asiento, @NotNull double costo, PasajeroModel idPasajero,

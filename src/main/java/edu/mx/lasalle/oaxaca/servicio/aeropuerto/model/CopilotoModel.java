@@ -3,8 +3,6 @@ package edu.mx.lasalle.oaxaca.servicio.aeropuerto.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 
-import java.sql.Time;
-
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
@@ -23,7 +21,7 @@ public class CopilotoModel {
 
     @Column(name="tiempoRestantePiloto")
     @NotNull
-    private Time tiempoRestantePiloto;
+    private String tiempoRestantePiloto;
 
 
     @OneToOne
@@ -31,7 +29,7 @@ public class CopilotoModel {
     @OnDelete(action=OnDeleteAction.CASCADE)
     private TripulacionModel idTripulacion;
 
-    public CopilotoModel(String rango, Time tiempoRestantePiloto, TripulacionModel idTripulacion) {
+    public CopilotoModel(String rango, String tiempoRestantePiloto, TripulacionModel idTripulacion) {
         this.rango = rango;
         this.tiempoRestantePiloto = tiempoRestantePiloto;
         this.idTripulacion = idTripulacion;
@@ -56,11 +54,11 @@ public class CopilotoModel {
         this.rango = rango;
     }
 
-    public Time getTiempoRestantePiloto() {
+    public String getTiempoRestantePiloto() {
         return tiempoRestantePiloto;
     }
 
-    public void setTiempoRestantePiloto(Time tiempoRestantePiloto) {
+    public void setTiempoRestantePiloto(String tiempoRestantePiloto) {
         this.tiempoRestantePiloto = tiempoRestantePiloto;
     }
 

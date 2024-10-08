@@ -26,7 +26,7 @@ public class VehiculoAereoController {
         vehiculoAereoService.registrarVehiculoAereo(vehiculoAereoModel);
         customResponse.setHttpCode(HttpStatus.CREATED);
         customResponse.setCode(201);
-        customResponse.setMessage("EQUIPAJE REGISTRADO CORRECTAMENTE");
+        customResponse.setMessage("VEHICULO REGISTRADO CORRECTAMENTE");
         return customResponse;
     };
     

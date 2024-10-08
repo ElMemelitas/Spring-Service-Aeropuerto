@@ -4,7 +4,6 @@ package edu.mx.lasalle.oaxaca.servicio.aeropuerto.controller;
 import edu.mx.lasalle.oaxaca.servicio.aeropuerto.model.EquipajeModel;
 import edu.mx.lasalle.oaxaca.servicio.aeropuerto.service.EquipajeService;
 import edu.mx.lasalle.oaxaca.servicio.aeropuerto.utils.CustomResponse;
-import java.util.HashSet;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

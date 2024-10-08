@@ -26,7 +26,7 @@ public class SobrecargoController {
         sobrecargoService.registrarSobrecargo(sobrecargoModel);
         customResponse.setHttpCode(HttpStatus.CREATED);
         customResponse.setCode(201);
-        customResponse.setMessage("EQUIPAJE REGISTRADO CORRECTAMENTE");
+        customResponse.setMessage("SOBRECARGO REGISTRADO CORRECTAMENTE");
         return customResponse;
     };
     

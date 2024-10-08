@@ -13,7 +13,7 @@ public class TerminalModel {
     @GeneratedValue (strategy= GenerationType.SEQUENCE)
     
     @Column(name="idTerminal")
-    private String idTerminal;
+    private int idTerminal;
 
     @Column(name="capacidad")
     @NotNull
@@ -37,11 +37,11 @@ public class TerminalModel {
     public TerminalModel() {
     }
 
-    public String getIdTerminal() {
+    public int getIdTerminal() {
         return idTerminal;
     }
 
-    public void setIdTerminal(String idTerminal) {
+    public void setIdTerminal(int idTerminal) {
         this.idTerminal = idTerminal;
     }
 

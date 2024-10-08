@@ -1,7 +1,5 @@
 package edu.mx.lasalle.oaxaca.servicio.aeropuerto.model;
 
-import java.sql.Time;
-
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
@@ -27,7 +25,7 @@ public class VueloModel {
 
     @Column(name="duracion")
     @NotNull
-    private Time duracion;
+    private String duracion;
     
     @Column(name="horaSalida")
     @NotNull
@@ -47,7 +45,7 @@ public class VueloModel {
     @OnDelete(action=OnDeleteAction.CASCADE)
     private TerminalModel idTerminal;
 
-    public VueloModel(String origen, String destino, Time duracion, String horaSalida, String horaLlegada, VehiculoAereoModel idVehiculoAereo, TerminalModel idTerminal) {
+    public VueloModel(String origen, String destino, String duracion, String horaSalida, String horaLlegada, VehiculoAereoModel idVehiculoAereo, TerminalModel idTerminal) {
         this.origen = origen;
         this.destino = destino;
         this.duracion = duracion;
@@ -84,11 +82,11 @@ public class VueloModel {
         this.destino = destino;
     }
 
-    public Time getDuracion() {
+    public String getDuracion() {
         return duracion;
     }
 
-    public void setDuracion(Time duracion) {
+    public void setDuracion(String duracion) {
         this.duracion = duracion;
     }
 

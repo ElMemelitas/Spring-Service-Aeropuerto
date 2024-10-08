@@ -4,7 +4,6 @@ package edu.mx.lasalle.oaxaca.servicio.aeropuerto.controller;
 import edu.mx.lasalle.oaxaca.servicio.aeropuerto.model.CopilotoModel;
 import edu.mx.lasalle.oaxaca.servicio.aeropuerto.service.CopilotoService;
 import edu.mx.lasalle.oaxaca.servicio.aeropuerto.utils.CustomResponse;
-import java.util.HashSet;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,7 +25,7 @@ public class CopilotoController {
         copilotoService.registrarCopiloto(copilotoModel);
         customResponse.setHttpCode(HttpStatus.CREATED);
         customResponse.setCode(201);
-        customResponse.setMessage("EQUIPAJE REGISTRADO CORRECTAMENTE");
+        customResponse.setMessage("COPILOTO REGISTRADO CORRECTAMENTE");
         return customResponse;
     };
     
@@ -63,7 +62,6 @@ public class CopilotoController {
     public ResponseEntity<Object> updateCopiloto(
             @RequestBody CopilotoModel copilotoModel,
             @PathVariable(value = "id") int id){
-        ResponseEntity<Object> responseEntity =null;
         CustomResponse customResponse = new CustomResponse();
         try {
             if(copilotoService.getCopiloto(id) == null){
@@ -87,7 +85,6 @@ public class CopilotoController {
     
     @DeleteMapping("/{id}/borrar")
     public ResponseEntity<Object> deleteCopiloto(@PathVariable int id){
-        ResponseEntity<Object> responseEntity =null;
         CustomResponse customResponse = new CustomResponse();
         try{
             copilotoService.borrarCopiloto(id);

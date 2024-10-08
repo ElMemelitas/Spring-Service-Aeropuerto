@@ -4,7 +4,6 @@ package edu.mx.lasalle.oaxaca.servicio.aeropuerto.controller;
 import edu.mx.lasalle.oaxaca.servicio.aeropuerto.model.BoletoModel;
 import edu.mx.lasalle.oaxaca.servicio.aeropuerto.service.BoletoService;
 import edu.mx.lasalle.oaxaca.servicio.aeropuerto.utils.CustomResponse;
-import java.util.HashSet;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,7 +25,7 @@ public class BoletoController {
         boletoService.registrarBoleto(boletoModel);
         customResponse.setHttpCode(HttpStatus.CREATED);
         customResponse.setCode(201);
-        customResponse.setMessage("EQUIPAJE REGISTRADO CORRECTAMENTE");
+        customResponse.setMessage("BOLETO REGISTRADO CORRECTAMENTE");
         return customResponse;
     };
     
@@ -63,7 +62,6 @@ public class BoletoController {
     public ResponseEntity<Object> updateBoleto(
             @RequestBody BoletoModel boletoModel,
             @PathVariable(value = "id") int id){
-        ResponseEntity<Object> responseEntity =null;
         CustomResponse customResponse = new CustomResponse();
         try {
             if(boletoService.getBoleto(id) == null){
@@ -87,7 +85,6 @@ public class BoletoController {
     
     @DeleteMapping("/{id}/borrar")
     public ResponseEntity<Object> deleteBoleto(@PathVariable int id){
-        ResponseEntity<Object> responseEntity =null;
         CustomResponse customResponse = new CustomResponse();
         try{
             boletoService.borrarBoleto(id);

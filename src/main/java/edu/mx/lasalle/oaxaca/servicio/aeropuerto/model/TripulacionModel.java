@@ -1,6 +1,6 @@
 package edu.mx.lasalle.oaxaca.servicio.aeropuerto.model;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
@@ -13,7 +13,7 @@ import jakarta.validation.constraints.NotNull;
 public class TripulacionModel {
     @Id
     @GeneratedValue (strategy= GenerationType.SEQUENCE)
-    
+
     @Column(name="idTripulacion")
     private int idTripulacion;
     
@@ -35,7 +35,7 @@ public class TripulacionModel {
 
     @Column(name="fechaNac")
     @NotNull
-    private Date fechaNac;
+    private LocalDate fechaNac;
 
     @Column(name="genero")
     @NotNull
@@ -46,7 +46,7 @@ public class TripulacionModel {
     @OnDelete(action = OnDeleteAction.CASCADE)
     private VueloModel idVuelo;
 
-    public TripulacionModel(int antiguedad, String turno, double horasVuelo, String nombre, Date fechaNac, String genero, VueloModel idVuelo) {
+    public TripulacionModel(int antiguedad, String turno, double horasVuelo, String nombre, LocalDate fechaNac, String genero, VueloModel idVuelo) {
         this.antiguedad = antiguedad;
         this.turno = turno;
         this.horasVuelo = horasVuelo;
@@ -99,11 +99,11 @@ public class TripulacionModel {
         this.nombre = nombre;
     }
 
-    public Date getFechaNac() {
+    public LocalDate getFechaNac() {
         return fechaNac;
     }
 
-    public void setFechaNac(Date fechaNac) {
+    public void setFechaNac(LocalDate fechaNac) {
         this.fechaNac = fechaNac;
     }
 

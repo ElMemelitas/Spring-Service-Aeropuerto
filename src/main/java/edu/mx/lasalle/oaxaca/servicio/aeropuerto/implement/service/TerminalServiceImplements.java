@@ -27,12 +27,12 @@ public class TerminalServiceImplements implements TerminalService{
     }
 
     @Override
-    public TerminalModel getTerminal(String id) {
+    public TerminalModel getTerminal(int id) {
         return TerminalRepository.findById(id);
     }
 
     @Override
-    public void actualizarDatosTerminal(TerminalModel terminalModel, String id) {
+    public void actualizarDatosTerminal(TerminalModel terminalModel, int id) {
        terminalModel.setIdTerminal(id); 
        TerminalRepository.save(terminalModel);
     }

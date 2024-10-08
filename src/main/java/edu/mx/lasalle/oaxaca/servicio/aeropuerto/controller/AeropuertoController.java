@@ -4,7 +4,6 @@ package edu.mx.lasalle.oaxaca.servicio.aeropuerto.controller;
 import edu.mx.lasalle.oaxaca.servicio.aeropuerto.model.AeropuertoModel;
 import edu.mx.lasalle.oaxaca.servicio.aeropuerto.service.AeropuertoService;
 import edu.mx.lasalle.oaxaca.servicio.aeropuerto.utils.CustomResponse;
-import java.util.HashSet;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -63,7 +62,6 @@ public class AeropuertoController {
     public ResponseEntity<Object> updateAeropuerto(
             @RequestBody AeropuertoModel aeropuertoModel,
             @PathVariable(value = "id") int id){
-        ResponseEntity<Object> responseEntity =null;
         CustomResponse customResponse = new CustomResponse();
         try {
             if(aeropuertoService.getAeropuerto(id) == null){
@@ -87,7 +85,6 @@ public class AeropuertoController {
     
     @DeleteMapping("/{id}/borrar")
     public ResponseEntity<Object> deleteAeropuerto(@PathVariable int id){
-        ResponseEntity<Object> responseEntity =null;
         CustomResponse customResponse = new CustomResponse();
         try{
             aeropuertoService.borrarAeropuerto(id);

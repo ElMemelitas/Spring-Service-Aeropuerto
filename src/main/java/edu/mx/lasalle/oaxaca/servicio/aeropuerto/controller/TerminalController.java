@@ -4,7 +4,6 @@ package edu.mx.lasalle.oaxaca.servicio.aeropuerto.controller;
 import edu.mx.lasalle.oaxaca.servicio.aeropuerto.model.TerminalModel;
 import edu.mx.lasalle.oaxaca.servicio.aeropuerto.service.TerminalService;
 import edu.mx.lasalle.oaxaca.servicio.aeropuerto.utils.CustomResponse;
-import java.util.HashSet;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,7 +25,7 @@ public class TerminalController {
         terminalService.registrarTerminal(terminalModel);
         customResponse.setHttpCode(HttpStatus.CREATED);
         customResponse.setCode(201);
-        customResponse.setMessage("EQUIPAJE REGISTRADO CORRECTAMENTE");
+        customResponse.setMessage("TERMINAL REGISTRADO CORRECTAMENTE");
         return customResponse;
     };
     
@@ -42,7 +41,7 @@ public class TerminalController {
     }
     
     @GetMapping("/{id}")
-    public ResponseEntity<Object> getTerminal (@PathVariable String id){
+    public ResponseEntity<Object> getTerminal (@PathVariable int id){
         try{
             return ResponseEntity.status(HttpStatus.OK).body(
                     new CustomResponse(HttpStatus.OK, 
@@ -62,8 +61,7 @@ public class TerminalController {
     @PutMapping("/{id}/actualizar")
     public ResponseEntity<Object> updateTerminal(
             @RequestBody TerminalModel terminalModel,
-            @PathVariable(value = "id") String id){
-        ResponseEntity<Object> responseEntity =null;
+            @PathVariable(value = "id") int id){
         CustomResponse customResponse = new CustomResponse();
         try {
             if(terminalService.getTerminal(id) == null){
@@ -87,7 +85,6 @@ public class TerminalController {
     
     @DeleteMapping("/{id}/borrar")
     public ResponseEntity<Object> deleteTerminal(@PathVariable int id){
-        ResponseEntity<Object> responseEntity =null;
         CustomResponse customResponse = new CustomResponse();
         try{
             terminalService.borrarTerminal(id);

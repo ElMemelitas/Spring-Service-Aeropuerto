@@ -26,7 +26,7 @@ public class VueloController {
         vueloService.registrarVuelo(vueloModel);
         customResponse.setHttpCode(HttpStatus.CREATED);
         customResponse.setCode(201);
-        customResponse.setMessage("EQUIPAJE REGISTRADO CORRECTAMENTE");
+        customResponse.setMessage("VUELO REGISTRADO CORRECTAMENTE");
         return customResponse;
     };
     

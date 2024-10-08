@@ -4,7 +4,6 @@ package edu.mx.lasalle.oaxaca.servicio.aeropuerto.controller;
 import edu.mx.lasalle.oaxaca.servicio.aeropuerto.model.AvionModel;
 import edu.mx.lasalle.oaxaca.servicio.aeropuerto.service.AvionService;
 import edu.mx.lasalle.oaxaca.servicio.aeropuerto.utils.CustomResponse;
-import java.util.HashSet;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,7 +25,7 @@ public class AvionController {
         avionService.registrarAvion(avionModel);
         customResponse.setHttpCode(HttpStatus.CREATED);
         customResponse.setCode(201);
-        customResponse.setMessage("EQUIPAJE REGISTRADO CORRECTAMENTE");
+        customResponse.setMessage("AVION REGISTRADO CORRECTAMENTE");
         return customResponse;
     };
     
@@ -63,7 +62,6 @@ public class AvionController {
     public ResponseEntity<Object> updateAvion(
             @RequestBody AvionModel avionModel,
             @PathVariable(value = "id") int id){
-        ResponseEntity<Object> responseEntity =null;
         CustomResponse customResponse = new CustomResponse();
         try {
             if(avionService.getAvion(id) == null){
@@ -87,7 +85,6 @@ public class AvionController {
     
     @DeleteMapping("/{id}/borrar")
     public ResponseEntity<Object> deleteAvion(@PathVariable int id){
-        ResponseEntity<Object> responseEntity =null;
         CustomResponse customResponse = new CustomResponse();
         try{
             avionService.borrarAvion(id);

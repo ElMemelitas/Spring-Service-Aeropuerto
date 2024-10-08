@@ -26,7 +26,7 @@ public class HelicopteroController {
         helicopteroService.registrarHelicoptero(helicopteroModel);
         customResponse.setHttpCode(HttpStatus.CREATED);
         customResponse.setCode(201);
-        customResponse.setMessage("EQUIPAJE REGISTRADO CORRECTAMENTE");
+        customResponse.setMessage("HELICOPTERO REGISTRADO CORRECTAMENTE");
         return customResponse;
     };
     
